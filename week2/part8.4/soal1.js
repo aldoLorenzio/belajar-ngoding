@@ -4,7 +4,8 @@ Diberikan sebuah function palindrome(kata) yang menerima satu parameter. Functio
 
 function palindrome(kata) {
     // you can only write your code here!
-    for (let i = 0; i < kata.length ; i++){
+
+    for (let i = 0; i <= kata.length-1 ; i++){
         for(let j = kata.length-1; j >= 0; j--){
             if(kata[i] == kata[j]){
                 return true;
