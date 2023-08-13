@@ -12,21 +12,26 @@ function groupAnimals(animals) {
     // jika index ke 0 dalam suatu array tsb adalah 'a' maka cout semua value tersebut dalam sebuah array
     //jika index ke 0 dalam suatu array tsb adalah 'c' maka cout semua value tersebut dalam sebuah array
 
-    let animalSort = animals.sort()
-    let array2 = []
+    let sorting = animals.sort()
+    let penampung = []
     let hasil = [];
 
     for (let i = 0; i <= animals.length-1; i++){
-       array2.push(animals[i])
-       if(array2[i][0] === "a"){
-        hasil += array2;
-       }
+      if(i == 0){
+        penampung.push(sorting[i])
+      }else if (penampung[0][0] === sorting[i][0]){
+        penampung.push(sorting[i])
+      }else{
+        hasil.push(penampung)
+        penampung = [sorting[i]]
+      }
     }
+    hasil.push(penampung);
     return hasil;
 }
   
   // TEST CASES
   console.log(groupAnimals(['cacing', 'ayam', 'kuda', 'anoa', 'kancil']));
-// [ ['ayam', 'anoa'], ['cacing'], ['kuda', 'kancil'] ]
-//   console.log(groupAnimals(['cacing', 'ayam', 'kuda', 'anoa', 'kancil', 'unta', 'cicak' ]));
+//[ ['ayam', 'anoa'], ['cacing'], ['kuda', 'kancil'] ]
+  console.log(groupAnimals(['cacing', 'ayam', 'kuda', 'anoa', 'kancil', 'unta', 'cicak' ]));
 // [ ['ayam', 'anoa'], ['cacing', 'cicak'], ['kuda', 'kancil'], ['unta'] ]
