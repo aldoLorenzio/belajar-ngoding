@@ -8,15 +8,15 @@ function groupAnimals(animals) {
     //ini kan disuruh buat grup array sesuai dengan huruf pertama value tersebut
     //misal console.log(groupAnimals(['cacing', 'ayam', 'kuda', 'anoa', 'kancil']));
     //maka outputnya = [ ['ayam', 'anoa'], ['cacing'], ['kuda', 'kancil'] ]
-    // yg harus kita lakuan adalah... ambil perulangan untuk mengambil semua value dalam array satu persatu
-    // jika index ke 0 dalam suatu array tsb adalah 'a' maka cout semua value tersebut dalam sebuah array
-    //jika index ke 0 dalam suatu array tsb adalah 'c' maka cout semua value tersebut dalam sebuah array
-
+    // yg harus gw lakuin, sorting dulu biar abjadnya urut dari a-z
+    // buat variable penampung dengan value data array kosong, untuk menampung hasil sorting tadi dengan kondisi tertentu
+    // buat perulangan dengan panjang parameter sebagai kondisinya
     let sorting = animals.sort()
     let penampung = []
     let hasil = [];
 
     for (let i = 0; i <= animals.length-1; i++){
+      //buat statement if else
       if(i == 0){
         penampung.push(sorting[i])
       }else if (penampung[0][0] === sorting[i][0]){
