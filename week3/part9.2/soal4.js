@@ -3,19 +3,25 @@ Diberikan sebuah function cariModus(arr) yang menerima sebuah array angka. Funct
 */
 function cariModus(arr) {
     // you can only write your code here!
-    let arrModus = [], isSame = false;
+    let arrModus = []
+    let sama = false;
 
-  for (let i = 0; i < arr.length; i++) {
-    for (let j = i + 1; j < arr.length; j++) {
+  for (let i = 0; i <= arr.length-1; i++) {
+    for (let j = i + 1; j <= arr.length-1; j++) {
       if (arr[i] === arr[j]) {
-        isSame = true;
+        sama = true;
         arrModus.push(arr[i]);
       } else {
-        isSame = false;
+        sama = false;
       }
     }
   }
-  return (arrModus[0] === undefined || isSame) ? -1 : arrModus[0];
+    if (arrModus[0] === undefined || sama){
+    return -1;
+    }else{
+    return arrModus[0]
+    }
+  
   }
   
   // TEST CASES
