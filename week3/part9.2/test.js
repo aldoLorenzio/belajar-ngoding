@@ -13,3 +13,5 @@ function cariModus(arr) {
   }
 
   console.log(cariModus([10, 4, 5, 2, 4])); // 4
+
+  //DONE
