@@ -12,32 +12,38 @@ Function countProfit akan mengembalikan/me-return sebuah array of object dimana 
 */
 
 function countProfit(shoppers) {
-    let listBarang = [ ['Sepatu Stacattu', 1500000, 10],
-                       ['Baju Zoro', 500000, 2],
-                       ['Sweater Uniklooh', 175000, 1]
-                     ];
-    
-    
-    let pembeli =[]
-    // you can only write your code here!
-   for(let i = 0; i<= listBarang.length-1; i++){
-   pembeli = {
-        product: listBarang[i][0],
-        shoppers: [],
-        leftOver: listBarang[i][2],
-        totalProfit: 0
+  var listBarang = [ ['Sepatu Stacattu', 1500000, 10],
+                     ['Baju Zoro', 500000, 2],
+                     ['Sweater Uniklooh', 175000, 1]
+                   ];
+
+  // you can only write your code here!
+  let pembeli = [];
+  for(let i = 0; i <= listBarang.length-1; i++){
+    let item = {
+      product: listBarang[i][0],
+      shoppers: [],
+      leftOver: listBarang[i][2],
+      totalProfit: 0
     }
+    pembeli.push(item)
 
-   }
-   
-
-   
+    for(let j = 0; j <= shoppers.length-1; j++){
+      if(item.product === shoppers[j].product && item.leftOver >= shoppers[j].amount){
+        item.shoppers.push(shoppers[j].name);
+        item.leftOver -= shoppers[j].amount;
+        item.totalProfit += (listBarang[i][1] * shoppers[j].amount)
+      }
+    }
   }
+  if(shoppers.length <= 0){
+    return []
+  }else{
+    return pembeli;
+  }
+}
 
-
-
-
-  // TEST CASES
+// TEST CASES
 console.log(countProfit([{name: 'Windi', product: 'Sepatu Stacattu', amount: 2}, {name: 'Vanessa', product: 'Sepatu Stacattu', amount: 3}, {name: 'Rani', product: 'Sweater Uniklooh', amount: 2}]));
 //[ { product: 'Sepatu Stacattu',
 //   shoppers: [ 'Windi', 'Vanessa' ],
@@ -52,30 +58,30 @@ console.log(countProfit([{name: 'Windi', product: 'Sepatu Stacattu', amount: 2},
 //   leftOver: 1,
 //   totalProfit: 0 } ]
 
-// console.log(countProfit([{name: 'Windi', product: 'Sepatu Stacattu', amount: 8}, {name: 'Vanessa', product: 'Sepatu Stacattu', amount: 10}, {name: 'Rani', product: 'Sweater Uniklooh', amount: 1}, {name: 'Devi', product: 'Baju Zoro', amount: 1}, {name: 'Lisa', product: 'Baju Zoro', amount: 1}]));
-// // [ { product: 'Sepatu Stacattu',
-// //     shoppers: [ 'Windi' ],
-// //     leftOver: 2,
-// //     totalProfit: 12000000 },
-// //   { product: 'Baju Zoro',
-// //     shoppers: [ 'Devi', 'Lisa' ],
-// //     leftOver: 0,
-// //     totalProfit: 1000000 },
-// //   { product: 'Sweater Uniklooh',
-// //     shoppers: [ 'Rani' ],
-// //     leftOver: 0,
-// //     totalProfit: 175000 } ]
-// console.log(countProfit([{name: 'Windi', product: 'Sepatu Naiki', amount: 5}]));
-// // [ { product: 'Sepatu Stacattu',
-// //     shoppers: [],
-// //     leftOver: 10,
-// //     totalProfit: 0 },
-// //   { product: 'Baju Zoro',
-// //     shoppers: [],
-// //     leftOver: 2,
-// //     totalProfit: 0 },
-// //   { product: 'Sweater Uniklooh',
-// //     shoppers: [],
-// //     leftOver: 1,
-// //     totalProfit: 0 } ]
-// console.log(countProfit([])); //[]
+console.log(countProfit([{name: 'Windi', product: 'Sepatu Stacattu', amount: 8}, {name: 'Vanessa', product: 'Sepatu Stacattu', amount: 10}, {name: 'Rani', product: 'Sweater Uniklooh', amount: 1}, {name: 'Devi', product: 'Baju Zoro', amount: 1}, {name: 'Lisa', product: 'Baju Zoro', amount: 1}]));
+// [ { product: 'Sepatu Stacattu',
+//     shoppers: [ 'Windi' ],
+//     leftOver: 2,
+//     totalProfit: 12000000 },
+//   { product: 'Baju Zoro',
+//     shoppers: [ 'Devi', 'Lisa' ],
+//     leftOver: 0,
+//     totalProfit: 1000000 },
+//   { product: 'Sweater Uniklooh',
+//     shoppers: [ 'Rani' ],
+//     leftOver: 0,
+//     totalProfit: 175000 } ]
+console.log(countProfit([{name: 'Windi', product: 'Sepatu Naiki', amount: 5}]));
+// [ { product: 'Sepatu Stacattu',
+//     shoppers: [],
+//     leftOver: 10,
+//     totalProfit: 0 },
+//   { product: 'Baju Zoro',
+//     shoppers: [],
+//     leftOver: 2,
+//     totalProfit: 0 },
+//   { product: 'Sweater Uniklooh',
+//     shoppers: [],
+//     leftOver: 1,
+//     totalProfit: 0 } ]
+console.log(countProfit([])); //[]
