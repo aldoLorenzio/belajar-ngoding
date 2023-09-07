@@ -8,12 +8,29 @@ Contoh:
 
 function totalDigitRekursif(angka) {
     // you can only write your code here!
-    
+    if(angka < 10){
+      return angka
+    }
+    return angka % 10 + totalDigitRekursif(Math.floor(angka/10))
   }
   
   // TEST CASES
   console.log(totalDigitRekursif(512)); // 8
+  /*
+  Looping pertama -> 2 + (512/10 (Math.floor jadi hasile 51))
+  Looping Kedua ->  2 + (51/10)
+  Looping Ketiga -> 2 + (5)
+  */
   console.log(totalDigitRekursif(1542)); // 12
   console.log(totalDigitRekursif(5)); // 5
   console.log(totalDigitRekursif(21)); // 3
+  /*
+  Looping Pertama -> 1 + (21/10)
+  Looping Kedua -> 1 + (2)
+  */
   console.log(totalDigitRekursif(11111)); // 5
+  console.log(totalDigitRekursif(467))
+  /*
+  Looping Pertama -> 7 + (46)
+  looping kedua -> 7 + (4)
+  */

@@ -68,4 +68,50 @@ let messageAllLowerCase = 'regex itu susah?';
 console.log(regexPattern.test(messageAllLowerCase));
 // mengembalikan nilai false karena tidak ada satupun karakter yang memenuhi pattern A-Z. statement tersebut juga memang false! regex tidak sesulit yang kita kira!
 
+// Method.replace()
 
+let stringAwal = 'Regex itu sangat susah!';
+stringHasil = stringAwal.replace(/susah/, 'mudah');
+console.log(stringHasil); //mengembalikan nilai "Regex itu sangat Mudah!"
+
+//Method.match()
+
+let pesan = 'Regex seru DEH!'
+console.log(pesan.match(/e/))
+// menampilkan "e" , namun hanya sekali
+
+console.log(pesan.match(/e/g));
+// menampilkan "e" untuk setiap "e" yang terdapat di dalam teks. `g` menandakan pencarian secara global, tidak hanya satu kali
+
+console.log(pesan.match(/e/gi));
+// menampilkan "e" untuk setiap "e" yang terdapat di dalam teks. `i` menandakan pencarian karakter dengan ignore case, atau mengabaikan besar kecilnya karakter, sehingga "E" pun akan dicocokkan.
+
+// Contoh 2 Penggunaan Match - Mencocokan karakter dan mengecualikan Punctuation atau Simbol
+
+let string = 'Walaupun regex banyak mengandung simbol, tapi tidak serumit seperti !@#$%^&*( , ^%&*!!^& dan !#*#$&*@%#'
+
+console.log(string.match(/[a-z]+/gi));
+
+//menampilkan ["Walaupun", "regex", "banyak", "mengandung" , "simbol", "tapi", "tidak" , "serumit", "seperti", "dan"]
+
+/*
+Simbol-simbol diatas, sering disebut sebagai Punctiation. Sering kali dalam beberapa kasus kita mau menghapus semua simbol simbol diatas.
+
+Jika kamu teliti, kamu pasti menemukan simbol + dibelakang [a-z]/ Simbol + disini berarti match akan menyatukan seluruh karakter yang cocok dengan pattern a-z hingga menemukan pattern lain diluar pattern tersebut. Dalam kasus contoh diatas, setiap kali menemukan spasi, ditemukannya spasi tersebut. Apabila kamu penasaran, cobalah hapus simbol + dari code diatas, dan jalankan kembali. Hasilnya akan berbeda
+*/
+
+/*
+BAGAIMANA JIKA PATTERN REGEX TIDAK DITEMUKAN?
+
+Jika pattern regex tidak dapat ditemukan dalam string, maka fungsi match() akan return bukan array kosong, tapi null. Bedanya array kosong dan null: array kosong memiliki length = 0, null tidak memiliki length
+
+Sebagai analogi: array kosong adalah gelas yang tidak terisi air dan null adalah tidak ada gelas sama sekali!
+
+Karena itu, kita perlu berhati- hati saat menggunakan properti length dari hasil fungsi match() karena null tidak memiliki length! Null.length akan menyebabkan error. Untuk mengecek apabila suatu fungsi match membalikkan array atau null, kita bisa menggunakan kode if(newArray), seperti berikut:
+*/
+
+if (newArray){
+    console.log('newArray bukan null!');
+}else {
+    console.log('Tidak ada newArray, ini null!')
+}

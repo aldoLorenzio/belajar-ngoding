@@ -23,6 +23,13 @@ function makanTerusRekursif(waktu) {
   
   // TEST CASES
   console.log(makanTerusRekursif(66)); // 5
+  /*
+  1 + (66-15)
+  1 + (51(51-15))
+  1 + (36(36-15))
+  1 + (21(21-15))
+  1 + (6(6-15))
+  */
   console.log(makanTerusRekursif(100)); // 7
   console.log(makanTerusRekursif(90)); // 6
   console.log(makanTerusRekursif(10)); // 1
