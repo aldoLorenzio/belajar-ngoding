@@ -1,17 +1,12 @@
-function splitVersiGua(str, separtor) {
-    let res = [];
-    let temp = '';
-    for (let i = 0; i < str.length; i++) {
-      //proses sebenernya ada disini
-      if (str[i] !== separtor) {
-        temp += str[i];
-      } else {
-        res.push(temp)
-        temp = '';
-      }
-    }
-    res.push(temp)
-    return res
-  }
+let obj = {
+  name: 'kok gitu',
+  name2 : 'yagini'
+}
 
-  console.log(splitVersiGua('Jeff Bezoz+10%', "+"))
+let arr = ["bakdu" , 'badi' , 'jono' ,'joni']
+
+
+for(let i of obj(status)){
+  console.log(i)
+}
+

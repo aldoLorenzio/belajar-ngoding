@@ -50,8 +50,7 @@ function economyChangeSummary(tradeActivity) {
 
     
     
-    let arr = splitVersiGua(tradeActivity, "+")
-    console.log(arr)
+    
     
   }
   

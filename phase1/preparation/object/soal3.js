@@ -24,11 +24,15 @@ Dilarang menggunakan sintaks Set atau Regex
 function initialObjectGrouping(studentsArr) {
     //CODE HERE
     let obj = {}
+    for(let i = 0; i <= studentsArr.length-1; i++){
+        if(!obj[studentsArr[i][0]]){
+          obj[studentsArr[i][0]] = [studentsArr[i]]
+        }else{
+          obj[studentsArr[i][0]].push(studentsArr[i])
+        }
 
-    for(let i = 0; i <= studentsArr; i++){
-      obj.studentsArr[i][0] += 'hayolo'
     }
-    console.log(obj)
+    return obj
   }
   console.log(initialObjectGrouping(['Budi', 'Badu', 'Joni', 'Jono']));
   /*
