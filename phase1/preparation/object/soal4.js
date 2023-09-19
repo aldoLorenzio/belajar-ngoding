@@ -29,9 +29,74 @@ Note:
 1. Hanya boleh menggunakan built in function .push();
 */
 
+function splitVersiGua(str, separtor) {
+  let res = [];
+  let temp = '';
+  for (let i = 0; i < str.length; i++) {
+    //proses sebenernya ada disini
+    if (str[i] !== separtor) {
+      temp += str[i];
+    } else {
+      res.push(temp)
+      temp = '';
+    }
+  }
+  res.push(temp)
+  return res
+}
+
 function travelingIndonesia(arr, emoney) {
     //code here
-    
+    let obj ={
+      'Yogyakarta': 1,
+      'Semarang' : 2,
+      'Surabaya' : 3,
+      'Denpasar' : 4
+    }
+    let temp = []
+
+    let data = []
+
+    let hasil = []
+
+    if(emoney == 'OVO'){
+      emoney = 0.15
+    }else if(emoney == 'Dana'){
+      emoney = 0.1
+    }else if(emoney == 'Gopay'){
+      emoney = 0.05
+    }else if(emoney == 'Cash'){
+      emoney = 0
+    }
+
+    for(let i = 0; i<= arr.length-1; i++){
+      temp.push(splitVersiGua(arr[i],"-"))
+      data.push(splitVersiGua(arr[i],"-"))
+      for(let j = 0 ; j <= data[i].length-1; j++){
+        for(let key in obj){
+          if(data[i][j] == key){
+            data[i][j] = obj[key]
+          }
+        }
+        if(data[i][j] === 'Bis'){
+          data[i][j] = 225000
+        }else if(data[i][j] === 'Kereta'){
+          data[i][j] = 250000
+        }else if(data[i][j] === 'Pesawat'){
+          data[i][j] = 275000
+        }
+      }
+      let test = Math.abs((data[i][1] - data[i][2]) * data[i][3])
+
+      hasil.push({
+        nama : data[i][0],
+        departureCity: temp[i][1] ,
+        destinationCity: temp[i][2],
+        transport : temp[i][3],
+        totalCost: test - (test * emoney)
+      })
+    }
+   return hasil;
   };
   
   console.log(travelingIndonesia(['Danang-Yogyakarta-Semarang-Bis', 'Alif-Denpasar-Surabaya-Kereta', 'Bahari-Semarang-Denpasar-Pesawat'], 'OVO'));

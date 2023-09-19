@@ -48,12 +48,40 @@ function economyChangeSummary(tradeActivity) {
     let duitLarry = 95000
     let duitJack = 90000
 
+    let data = []
+    let hasil = []
+
+    let duit = 0
+    for(let i = 0; i <= tradeActivity.length-1; i++){
+      for(let j = 0; j <= tradeActivity[i].length-1; j++){
+        for(let k = 0; k <= tradeActivity[i][j].length-1; k++){
+          if(tradeActivity[i][j][k] == '+'){
+            data.push(splitVersiGua(tradeActivity[i][j], "+"))
+          }else if(tradeActivity[i][j][k] == '-'){
+            data.push(splitVersiGua(tradeActivity[i][j], "-"))
+          }
+          
+          
+        }
+        if(data[j][0] == 'Jeff Bezos'){
+          duit = duitJeff
+        }else if(data[j][0] == 'Larry Page'){
+          duit = duitLarry
+        }else if(data[j][0] == 'Jack Ma'){
+          duit = duitJack
+        }
+        
+        hasil.push({
+          name:data[j][0],
+          duit: duit
+        })
+      }
+    }
+
     
-    
-    
-    
+    return hasil
   }
-  
+
   
   console.log(economyChangeSummary([
     ['Jeff Bezos+5%', 'Larry Page+10%', 'Jeff Bezos-3%'],

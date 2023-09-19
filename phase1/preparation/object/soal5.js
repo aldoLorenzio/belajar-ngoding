@@ -23,11 +23,17 @@ CONSTRAINTS
 
 function deleteUndefinedKeys(data) {
     //code here
-  for(let key of data){
-    if(key == undefined){
-      delete key
+  for(let i = 0 ; i <= data.length-1; i++){
+    for(let key in data[i]){
+      if(data[i][key] == undefined){
+        delete data[i][key]
+      }
     }
   }
+  if(data.length == 0){
+    return 'No data'
+  }
+  return data
   
   }
   
@@ -51,38 +57,38 @@ function deleteUndefinedKeys(data) {
       { name: 'Alexei', address: 'Earth', age: 18, gender: 'male' } ]
   */
   
-  // console.log(deleteUndefinedKeys([{
-  //     band: 'Ghost',
-  //     formed: 2006,
-  //     members: ['Papa Emeritus', 'Alpha', 'Omega', 'Water', 'Wind', 'Earth'],
-  //     genre: 'Heavy Metal',
-  //     rating: undefined
-  //   },
-  //   {
-  //     band: 'BABYMETAL',
-  //     formed: undefined,
-  //     members: ['SU-METAL', 'MOAMETAL', 'YUIMETAL'],
-  //     genre: 'Kawaii Metal',
-  //     rating: undefined
-  //   },
-  //   {
-  //     band: 'Avatar',
-  //     formed: 2006,
-  //     members: undefined,
-  //     genre: undefined,
-  //     rating: 5
-  //   }
-  // ]));
-  // /*
-  // [ { band: 'Ghost',
-  //     formed: 2006,
-  //     members: [ 'Papa Emeritus', 'Alpha', 'Omega', 'Water', 'Wind', 'Earth' ],
-  //     genre: 'Heavy Metal' },
-  //   { band: 'BABYMETAL',
-  //     members: [ 'SU-METAL', 'MOAMETAL', 'YUIMETAL' ],
-  //     genre: 'Kawaii Metal' },
-  //   { band: 'Avatar', formed: 2006, rating: 5 } ]
-  // */
+  console.log(deleteUndefinedKeys([{
+      band: 'Ghost',
+      formed: 2006,
+      members: ['Papa Emeritus', 'Alpha', 'Omega', 'Water', 'Wind', 'Earth'],
+      genre: 'Heavy Metal',
+      rating: undefined
+    },
+    {
+      band: 'BABYMETAL',
+      formed: undefined,
+      members: ['SU-METAL', 'MOAMETAL', 'YUIMETAL'],
+      genre: 'Kawaii Metal',
+      rating: undefined
+    },
+    {
+      band: 'Avatar',
+      formed: 2006,
+      members: undefined,
+      genre: undefined,
+      rating: 5
+    }
+  ]));
+  /*
+  [ { band: 'Ghost',
+      formed: 2006,
+      members: [ 'Papa Emeritus', 'Alpha', 'Omega', 'Water', 'Wind', 'Earth' ],
+      genre: 'Heavy Metal' },
+    { band: 'BABYMETAL',
+      members: [ 'SU-METAL', 'MOAMETAL', 'YUIMETAL' ],
+      genre: 'Kawaii Metal' },
+    { band: 'Avatar', formed: 2006, rating: 5 } ]
+  */
   
-  // console.log(deleteUndefinedKeys([]));
-  // // No data
+  console.log(deleteUndefinedKeys([]));
+  // No data
