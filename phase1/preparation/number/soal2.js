@@ -49,6 +49,9 @@ NOTE:
 
 function squareNumber(num) {
     //code here
+    if(num < 3){
+      return 'Minimal input adalah 3'
+    }
   let count = 1;
   let array = []
   for(let i = 0 ; i < num; i++){
@@ -56,30 +59,41 @@ function squareNumber(num) {
     for(let j = 0 ; j < num; j++){
       array[i][j] = count++
     }
-    if(array[i+=2] % 2 == 0){
-      array[i]
-    }else{
-      array[i].reverse()
+  }
+
+  for(let i = 1 ; i <= array.length-1 ; i+=2){
+    array[i] = array[i].reverse()
+  }
+
+  for(let i = 0; i <= array.length-1; i++){
+    for(let j = 0; j <= array.length-1; j++){
+      if(array[i][j] % 4 == 0){
+        array[i][j] = '#'
+      }else if(array[i][j] % 2 == 0){
+        array[i][j] = 'o'
+      }else{
+        array[i][j] = 'x'
+      }
     }
   }
-  // array[1].reverse()
+  
   return array
   }
   
   console.log(squareNumber(3));
   // [ [x, o, x],  [o, x, #], [x, #, x] ]
   
-//   console.log(squareNumber(4));
-//   // [ [ x, o, x, # ],
-//   //   [ #, x, o, x ],
-//   //   [ x, o, x, # ],
-//   //   [ #, x, o, x ] ]
+  console.log(squareNumber(4));
+  // [ [ x, o, x, # ],
+  //   [ #, x, o, x ],
+  //   [ x, o, x, # ],
+  //   [ #, x, o, x ] ]
   
-//   console.log(squareNumber(5));
-//   // [ [ x, o, x, #, x ],
-//   //   [ o, x, #, x, o ],
-//   //   [ x, #, x, o, x ],
-//   //   [ #, x, o, x, # ],
-//   //   [ x, o, x, #, o ] ]
+  console.log(squareNumber(5));
+  // [ [ x, o, x, #, x ],
+  //   [ o, x, #, x, o ],
+  //   [ x, #, x, o, x ],
+  //   [ #, x, o, x, # ],
+  //   [ x, o, x, #, o ] ]
   
-//   console.log(squareNumber(2)); // Minimal input adalah 3
+  console.log(squareNumber(2)); // Minimal input adalah 3

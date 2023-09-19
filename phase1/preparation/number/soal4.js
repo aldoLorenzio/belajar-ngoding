@@ -21,11 +21,17 @@ yang tipe data-nya berupa String.
 
 function miniSudokuBoard(text) {
     //code here
+
+    let array = []
+    let index = 0
     for(let i = 0 ; i < 3; i++){
+      array[i] = []
         for(let j = 0; j < 3; j++){
-            
+            array[i][j] = text.charAt(index++)
         }
     }
+
+    return array;
   }
   
   console.log(miniSudokuBoard('005030081'));

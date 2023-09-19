@@ -36,6 +36,30 @@ NOTE:
 
 function squareNumber(num) {
     //code here
+  if(num < 3){
+    return 'Minimal input adalah 3'
+  }
+
+
+  let array = []
+  let max = num * num
+    for(let i = 0; i < num; i++){
+      array[i] = []
+      for(let j = 0; j < num; j++){
+        array[i][j] = max--
+      }
+    }
+
+    if(num % 2 == 0){
+      for(let i = 1; i <= array.length-1; i+=2){
+        array[i] = array[i].reverse()
+      }
+    }else{
+      for(let i = 0; i <= array.length-1; i+=2){
+        array[i] = array[i].reverse()
+      }
+    }
+    return array
   }
   
   console.log(squareNumber(3));
