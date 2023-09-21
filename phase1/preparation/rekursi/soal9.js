@@ -31,6 +31,22 @@ RULES:
 
 function virusCheckRecursive(str, viruses) {
     //code here
+
+    if(!viruses){
+      return 'There is no viruses'
+    }
+    
+    if(str.length === 0){
+      return 0
+    }else{
+      let substr = str[0];
+      for(let i = 0; i < viruses.length; i++){
+        if(substr.toLowerCase() === viruses[i].toLowerCase()){
+          return 1 + virusCheckRecursive(str.slice(1), viruses)
+        }
+      }
+      return 0 + virusCheckRecursive(str.slice(1), viruses)
+    }
   }
   
   console.log(virusCheckRecursive('qlD4MZax0raQqew', 'x|0|q')); // 5

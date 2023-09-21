@@ -16,6 +16,21 @@
 
 function hapusSimbolRec(str) {
     //code here
+    if (str === '') {
+      return ''
+    }else{
+      let alphabet = 'abcdeghijklmnopqrstuvwxyz1234567890'
+      let check = false
+      for (let i = 0 ; i <= alphabet.length-1; i++){
+        if(str[0] === alphabet[i]){
+          check = true
+        break
+      }else{
+        check = false
+      }
+
+    }   
+    }
   }
   
   console.log(hapusSimbolRec('test4@aa')); //test4aa

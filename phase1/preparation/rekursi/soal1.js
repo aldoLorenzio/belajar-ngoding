@@ -21,7 +21,7 @@ function angkaTerbesar(sentence) {
 
     if(sentence[0] > angkaTerbesar(sentence.slice(1))){
         return sentence[0]
-    }else{
+     }else{
         return angkaTerbesar(sentence.slice(1))
     }
   }

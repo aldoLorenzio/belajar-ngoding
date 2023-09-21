@@ -18,6 +18,17 @@ RULES
 function palindromeRecursive(sentence) {
     //code here - saran bikin fungsi rekursif didalam sini
     //lalu bandingkan dengan sentence
+
+    if(sentence == ''){
+        return true
+    }
+    
+    if(sentence[0] !== sentence[sentence.length-1]){
+        return false
+    }else{   
+        return palindromeRecursive(sentence.slice(1, sentence.length-1))
+    }
+
 }
 
 // TEST CASES

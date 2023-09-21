@@ -20,8 +20,16 @@
 
 function changeXRecursive(data, jenis) {
     //code here
-    if(data == data[data.length-1]){
-        return data
+    if(data == ''){
+        return ''
+    }
+    
+    if(jenis == 'ganjil' && parseInt(data[0]) % 2 !== 0){
+        return data[0] + changeXRecursive(data.slice(1),jenis)
+    }else if(jenis === 'genap' && parseInt(data[0]) % 2 === 0){
+        return data[0] + changeXRecursive(data.slice(1),jenis)
+    }else{
+        return 'x' + changeXRecursive(data.slice(1), jenis)
     }
   }
   

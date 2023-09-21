@@ -1,0 +1,23 @@
+/* Include the padding and border in an elemet's total width and height */
+
+* {
+    box-sizing: border-box;
+}
+
+/* Remove margins and padding from the list */
+
+ul {
+    margin: 0;
+    padding: 0;
+}
+
+/* Style the list items */
+
+ul li{
+  cursor: pointer;
+  position: relative;
+  padding: 12px 8px 12px 40px;
+  background: #eee;
+  font-size: 18px;
+  transition: 0.2s;
+}

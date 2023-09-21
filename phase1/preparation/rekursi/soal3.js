@@ -17,6 +17,26 @@
 
 function consonantCounterRecursive(sentences) {
     //code here
+    if(sentences == ''){
+      return 0
+    }
+
+    let check = false
+    let alphabet = 'bcdfghjklmnpqrstvwxyz'
+    for(let i = 0 ; i <= alphabet.length-1; i++){
+      if(sentences[0].toLowerCase() == alphabet[i]){
+        check = true
+        break;
+      }else{
+        check = false
+      }
+    }
+
+    if(check == true){
+      return 1 + consonantCounterRecursive(sentences.slice(1))
+    }else{
+      return 0 + consonantCounterRecursive(sentences.slice(1))
+    }
   }
   
   console.log(consonantCounterRecursive('alDi Suka MakAn baksO')) //10
