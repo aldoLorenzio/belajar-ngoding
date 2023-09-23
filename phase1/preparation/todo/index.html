@@ -9,12 +9,15 @@
 <body>
     <div id="myDIV" class="header">
         <h2>My To Do List</h2>
+        <input type="text" id="search" placeholder="Search...">
+        <span onclick="search()" class="searchBtn">Search</span>
         <input type="text" id="myInput" placeholder="Title...">
+        <span onclick="newElement()" class ='addBtn'>Add</span>
     </div>
     
     <ul id="myUl">
         <li>Hit the gym</li>
-        <li class="checked">Pay bills</li>
+        <li>Pay bills</li>
         <li>Meet George</li>
         <li>Buy eggs</li>
         <li>Read a book</li>
