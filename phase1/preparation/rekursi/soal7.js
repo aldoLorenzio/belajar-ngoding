@@ -14,6 +14,16 @@
 
 function parseNumber(equation) {
     //code here
+    if (equation == 0){
+      return ''
+    }else if(equation < 10){
+      return equation
+    }else{
+      let eStr = equation.toString();
+      let res = Number(eStr[0]) * (10 **(eStr.length-1))
+      let newParam = Number(eStr.slice(1))
+      return res + '+' + parseNumber(newParam)
+    }
   };
   
   console.log(parseNumber(3333)) // 3000+300+30+3  // 3000 + 300 + 30 + 3
