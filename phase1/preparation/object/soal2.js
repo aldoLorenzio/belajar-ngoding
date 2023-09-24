@@ -44,43 +44,42 @@ function splitVersiGua(str, separtor) {
 }
 
 function economyChangeSummary(tradeActivity) {
-    let duitJeff = 100000
-    let duitLarry = 95000
-    let duitJack = 90000
+  let duitJeff = 100000
+  let duitLarry = 95000
+  let duitJack = 90000
 
-    let data = []
-    let hasil = []
-
-    let duit = 0
-    for(let i = 0; i <= tradeActivity.length-1; i++){
-      for(let j = 0; j <= tradeActivity[i].length-1; j++){
-        for(let k = 0; k <= tradeActivity[i][j].length-1; k++){
-          if(tradeActivity[i][j][k] == '+'){
-            data.push(splitVersiGua(tradeActivity[i][j], "+"))
-          }else if(tradeActivity[i][j][k] == '-'){
-            data.push(splitVersiGua(tradeActivity[i][j], "-"))
-          }
-          
-          
+  let operator = ''
+  let name = ''
+  let percentage = 0
+  let result = []
+  
+  
+  for (let i = 0; i < tradeActivity.length; i++) {
+    for (let j = 0; j < tradeActivity[i].length; j++) {
+      let obj = {}
+      for (let k = tradeActivity[i][j].length - 1; k >= 0; k--) {
+        if (tradeActivity[i][j][k] === '-' || tradeActivity[i][j][k] === '+') {
+          operator = tradeActivity[i][j][k]
+          break
         }
-        if(data[j][0] == 'Jeff Bezos'){
-          duit = duitJeff
-        }else if(data[j][0] == 'Larry Page'){
-          duit = duitLarry
-        }else if(data[j][0] == 'Jack Ma'){
-          duit = duitJack
-        }
-        
-        hasil.push({
-          name:data[j][0],
-          duit: duit
-        })
       }
-    }
+      name = tradeActivity[i][j].replace(/[^A-Za-z\s]+/g, '')
+      percentage = parseInt(tradeActivity[i][j].replace(/[^0-9]+/g, '')) / 100
+      
+      const isJeff = name.includes("Jeff")
+      const isLarry = name.includes("Larry")
 
-    
-    return hasil
+      obj.name= name
+      obj.deposit = 
+      isJeff ? (operator == '+' ? duitJeff = duitJeff + (duitJeff * percentage) : duitJeff = duitJeff - (duitJeff * percentage)) :
+      isLarry ? (operator == '+' ? duitLarry = duitLarry + (duitLarry * percentage) : duitLarry = duitLarry - (duitLarry * percentage)) :
+      (operator == '+' ? duitJack = duitJack + (duitJack * percentage) : duitJack = duitJack = duitJack - (duitJack * percentage))
+      obj.owner = isJeff ? 'Amazon' : isLarry ? 'Google' : 'Alibaba'
+      result.push(obj)
+    }
   }
+  return result
+}
 
   
   console.log(economyChangeSummary([
@@ -103,9 +102,9 @@ function economyChangeSummary(tradeActivity) {
   */
   console.log("==============================================================================");
   
-  // console.log(economyChangeSummary([
-  //   ['Jeff Bezos-10%']
-  // ]))
+  console.log(economyChangeSummary([
+    ['Jeff Bezos-10%']
+  ]))
   /*
     [ { name: 'Jeff Bezos', deposit: 90000, owner: 'Amazon' } ]
   */
