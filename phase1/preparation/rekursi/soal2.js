@@ -35,3 +35,5 @@ function changeXRecursive(data, jenis) {
   
   console.log(changeXRecursive("012345678922468", "ganjil")); //x1x3x5x7x9xxxxx
   console.log(changeXRecursive("0123456789", "genap")); //0x2x4x6x8x
+
+//   DONE
